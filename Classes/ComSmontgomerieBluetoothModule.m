@@ -152,15 +152,22 @@ typedef enum {
 }
 
 -(id)startPicker: (id) args {
-	NSLog(@"Showing picker..");
-	
-	GKPeerPickerController*		picker;
-	
-	self.gameState = kStatePicker;			// we're going to do Multiplayer!
-	
-	picker = [[GKPeerPickerController alloc] init]; // note: picker is released in various picker delegate methods when picker use is done.
-	picker.delegate = self;
-	[picker show]; // show the Peer Picker
+	if ([NSThread isMainThread])
+	{
+		NSLog(@"Showing picker..");
+		
+		GKPeerPickerController*		picker;
+		
+		self.gameState = kStatePicker;			// we're going to do Multiplayer!
+		
+		picker = [[GKPeerPickerController alloc] init]; // note: picker is released in various picker delegate methods when picker use is done.
+		picker.delegate = self;
+		[picker show]; // show the Peer Picker		
+	}
+	else {
+		
+		[self performSelectorOnMainThread:@selector(startPicker:) withObject:nil waitUntilDone:NO];		
+	}
 	
 	return nil;
 }

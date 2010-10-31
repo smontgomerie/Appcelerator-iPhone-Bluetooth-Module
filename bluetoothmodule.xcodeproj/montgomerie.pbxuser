@@ -96,14 +96,14 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1011, 520}}";
 			sepNavSelRange = "{1100, 0}";
-			sepNavVisRange = "{409, 718}";
+			sepNavVisRange = "{457, 675}";
 		};
 	};
 	24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 4628}}";
-			sepNavSelRange = "{3696, 0}";
-			sepNavVisRange = "{3207, 546}";
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 4173}}";
+			sepNavSelRange = "{6734, 0}";
+			sepNavVisRange = "{5998, 594}";
 		};
 	};
 	24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {
@@ -177,7 +177,7 @@
 		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
-		rLoc = 256;
+		rLoc = 263;
 		rType = 1;
 	};
 	2FA98E87127CFCB20004B5DF /* PBXTextBookmark */ = {
@@ -185,7 +185,7 @@
 		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
 		name = "ComSmontgomerieBluetoothModule.m: 242";
 		rLen = 0;
-		rLoc = 6730;
+		rLoc = 6887;
 		rType = 0;
 		vrLen = 427;
 		vrLoc = 6552;
@@ -255,7 +255,7 @@
 		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
 		name = "ComSmontgomerieBluetoothModule.m: 167";
 		rLen = 0;
-		rLoc = 3829;
+		rLoc = 3986;
 		rType = 0;
 		vrLen = 669;
 		vrLoc = 3206;
@@ -275,7 +275,7 @@
 		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
 		name = "ComSmontgomerieBluetoothModule.m: 165";
 		rLen = 0;
-		rLoc = 3696;
+		rLoc = 3853;
 		rType = 0;
 		vrLen = 546;
 		vrLoc = 3207;
