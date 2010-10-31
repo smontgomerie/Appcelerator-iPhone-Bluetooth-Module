@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 0.1
+description: My module
+author: Your Name
+license: Specify your license
+copyright: Copyright (c) 2010 by Your Company
+
+
+# these should not be edited
+name: bluetoothmodule
+moduleid: com.smontgomerie.bluetooth
+guid: 98126e9f-5aed-4d9f-96c0-b1faf3ab7960
+platform: iphone
+minsdk: 1.4.0
