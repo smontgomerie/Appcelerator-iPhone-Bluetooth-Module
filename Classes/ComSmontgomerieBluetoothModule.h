@@ -5,12 +5,15 @@
  * and licensed under the Apache Public License (version 2)
  */
 #import "TiModule.h"
+#import "SessionManager.h"
 #import <GameKit/GameKit.h>
 
-@interface ComSmontgomerieBluetoothModule : TiModule <GKPeerPickerControllerDelegate, GKSessionDelegate, UIAlertViewDelegate> 
+@interface ComSmontgomerieBluetoothModule : TiModule <GKPeerPickerControllerDelegate, GKSessionDelegate, UIAlertViewDelegate, SessionManagerGameDelegate> 
 {
-	NSInteger	gameState;
+//	NSInteger	gameState;
 	NSInteger	peerStatus;
+	
+	SessionManager* manager;
 	
 	// networking
 	GKSession		*gameSession;
@@ -22,7 +25,7 @@
 	UIAlertView		*connectionAlert;	
 }
 
-@property(nonatomic) NSInteger		gameState;
+//@property(nonatomic) NSInteger		gameState;
 @property(nonatomic) NSInteger		peerStatus;
 
 @property(nonatomic, retain) GKSession	 *gameSession;
@@ -32,8 +35,13 @@
 
 - (void)invalidateSession:(GKSession *)session;
 
-- (void)sendNetworkPacket:(GKSession *)session packetID:(int)packetID withData:(void *)data ofLength:(int)length reliable:(BOOL)howtosend;
+//- (void)sendNetworkPacket:(GKSession *)session packetID:(int)packetID withData:(void *)data ofLength:(int)length reliable:(BOOL)howtosend;
+
+/* Send to the other session */
+- (void)send: (id) args;
+
 - (void)startPicker;
 - (id)startPicker: (id) args;
-	
+
 @end
+

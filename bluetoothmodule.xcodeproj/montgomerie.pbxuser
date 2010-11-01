@@ -2,7 +2,14 @@
 {
 	0867D690FE84028FC02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Debug;
+		activeSDKPreference = iphoneos4.1;
 		activeTarget = D2AAC07D0554694100DB518D /* bluetoothmodule */;
+		addToTargets = (
+			D2AAC07D0554694100DB518D /* bluetoothmodule */,
+		);
+		breakpoints = (
+			2F7CC22A127E0A5F0090785B /* ComSmontgomerieBluetoothModule.m:250 */,
+		);
 		codeSenseManager = 2FA98DE6127CDB580004B5DF /* Code sense */;
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
@@ -63,27 +70,12 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 310172489;
-			PBXWorkspaceStateSaveDate = 310172489;
+			PBXPerProjectTemplateStateSaveDate = 310244486;
+			PBXWorkspaceStateSaveDate = 310244486;
 		};
 		perUserProjectItems = {
-			2FA98DE7127CDB870004B5DF /* PBXBookmark */ = 2FA98DE7127CDB870004B5DF /* PBXBookmark */;
-			2FA98DEA127CDB940004B5DF /* PBXTextBookmark */ = 2FA98DEA127CDB940004B5DF /* PBXTextBookmark */;
-			2FA98DED127CDD4E0004B5DF /* PBXTextBookmark */ = 2FA98DED127CDD4E0004B5DF /* PBXTextBookmark */;
-			2FA98DEE127CDD4E0004B5DF /* PBXTextBookmark */ = 2FA98DEE127CDD4E0004B5DF /* PBXTextBookmark */;
-			2FA98DEF127CDD4E0004B5DF /* PBXTextBookmark */ = 2FA98DEF127CDD4E0004B5DF /* PBXTextBookmark */;
-			2FA98E86127CFCB20004B5DF /* XCBuildMessageTextBookmark */ = 2FA98E86127CFCB20004B5DF /* XCBuildMessageTextBookmark */;
-			2FA98E87127CFCB20004B5DF /* PBXTextBookmark */ = 2FA98E87127CFCB20004B5DF /* PBXTextBookmark */;
-			2FA98E8A127CFCDE0004B5DF /* PBXTextBookmark */ = 2FA98E8A127CFCDE0004B5DF /* PBXTextBookmark */;
-			2FA98E8B127CFCDE0004B5DF /* PBXTextBookmark */ = 2FA98E8B127CFCDE0004B5DF /* PBXTextBookmark */;
-			2FA98E8C127CFCDE0004B5DF /* PBXTextBookmark */ = 2FA98E8C127CFCDE0004B5DF /* PBXTextBookmark */;
-			2FA98E8D127CFCDE0004B5DF /* PBXTextBookmark */ = 2FA98E8D127CFCDE0004B5DF /* PBXTextBookmark */;
-			2FA98E98127CFD660004B5DF /* PBXTextBookmark */ = 2FA98E98127CFD660004B5DF /* PBXTextBookmark */;
-			2FA98E99127CFD660004B5DF /* PBXTextBookmark */ = 2FA98E99127CFD660004B5DF /* PBXTextBookmark */;
-			2FA98E9A127CFD660004B5DF /* PBXTextBookmark */ = 2FA98E9A127CFD660004B5DF /* PBXTextBookmark */;
-			2FA98E9B127CFD660004B5DF /* PBXTextBookmark */ = 2FA98E9B127CFD660004B5DF /* PBXTextBookmark */;
-			2FA98EAC127CFE240004B5DF /* PBXTextBookmark */ = 2FA98EAC127CFE240004B5DF /* PBXTextBookmark */;
-			2FA98EAD127CFE240004B5DF /* PBXTextBookmark */ = 2FA98EAD127CFE240004B5DF /* PBXTextBookmark */;
+			2F7CC22C127E0A650090785B /* PBXTextBookmark */ = 2F7CC22C127E0A650090785B /* PBXTextBookmark */;
+			2F7CC2B3127E2B5D0090785B /* PBXTextBookmark */ = 2F7CC2B3127E2B5D0090785B /* PBXTextBookmark */;
 		};
 		sourceControlManager = 2FA98DE5127CDB580004B5DF /* Source Control */;
 		userBuildSettings = {
@@ -94,16 +86,17 @@
 	};
 	24DD6CF71134B3F500162E58 /* ComSmontgomerieBluetoothModule.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 520}}";
-			sepNavSelRange = "{1100, 0}";
-			sepNavVisRange = "{457, 675}";
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 663}}";
+			sepNavSelRange = "{397, 0}";
+			sepNavVisRange = "{0, 542}";
 		};
 	};
 	24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1076, 4173}}";
-			sepNavSelRange = "{6734, 0}";
-			sepNavVisRange = "{5998, 594}";
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 5031}}";
+			sepNavSelRange = "{6583, 8}";
+			sepNavVisRange = "{5990, 687}";
+			sepNavWindowFrame = "{{16, 81}, {1015, 692}}";
 		};
 	};
 	24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {
@@ -111,7 +104,67 @@
 			sepNavIntBoundsRect = "{{0, 0}, {956, 564}}";
 			sepNavSelRange = "{228, 0}";
 			sepNavVisRange = "{0, 485}";
+			sepNavWindowFrame = "{{15, 81}, {1015, 692}}";
 		};
+	};
+	24DE9E1011C5FE74003F90F6 /* ComSmontgomerieBluetoothModuleAssets.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 280}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 288}";
+		};
+	};
+	2F7CBE3A127D47AD0090785B /* SessionManager.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 1612}}";
+			sepNavSelRange = "{3051, 17}";
+			sepNavVisRange = "{2885, 664}";
+		};
+	};
+	2F7CBE3B127D47AD0090785B /* SessionManager.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 6006}}";
+			sepNavSelRange = "{7124, 0}";
+			sepNavVisRange = "{6428, 912}";
+		};
+	};
+	2F7CC22A127E0A5F0090785B /* ComSmontgomerieBluetoothModule.m:250 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
+		functionName = "-session:didReceivePacket:ofType:";
+		hitCount = 1;
+		ignoreCount = 0;
+		lineNumber = 250;
+		location = DuckHunt2;
+		modificationTime = 310258004.103808;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	2F7CC22C127E0A650090785B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
+		name = "ComSmontgomerieBluetoothModule.m: 250";
+		rLen = 8;
+		rLoc = 6583;
+		rType = 0;
+		vrLen = 671;
+		vrLoc = 5946;
+	};
+	2F7CC2B3127E2B5D0090785B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
+		name = "ComSmontgomerieBluetoothModule.m: 250";
+		rLen = 8;
+		rLoc = 6583;
+		rType = 0;
+		vrLen = 687;
+		vrLoc = 5990;
 	};
 	2FA98DE5127CDB580004B5DF /* Source Control */ = {
 		isa = PBXSourceControlManager;
@@ -126,169 +179,6 @@
 	2FA98DE6127CDB580004B5DF /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
-	};
-	2FA98DE7127CDB870004B5DF /* PBXBookmark */ = {
-		isa = PBXBookmark;
-		fRef = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
-	};
-	2FA98DEA127CDB940004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
-		name = "titanium.xcconfig: 13";
-		rLen = 0;
-		rLoc = 228;
-		rType = 0;
-		vrLen = 485;
-		vrLoc = 0;
-	};
-	2FA98DED127CDD4E0004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
-		name = "ComSmontgomerieBluetoothModule.m: 1";
-		rLen = 0;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 317;
-		vrLoc = 0;
-	};
-	2FA98DEE127CDD4E0004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
-		name = "ComSmontgomerieBluetoothModule.m: 17";
-		rLen = 0;
-		rLoc = 1080;
-		rType = 0;
-		vrLen = 235;
-		vrLoc = 2022;
-	};
-	2FA98DEF127CDD4E0004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
-		name = "titanium.xcconfig: 13";
-		rLen = 0;
-		rLoc = 228;
-		rType = 0;
-		vrLen = 485;
-		vrLoc = 0;
-	};
-	2FA98E86127CFCB20004B5DF /* XCBuildMessageTextBookmark */ = {
-		isa = PBXTextBookmark;
-		comments = "Unused variable 'coinToss'";
-		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
-		fallbackIsa = XCBuildMessageTextBookmark;
-		rLen = 1;
-		rLoc = 263;
-		rType = 1;
-	};
-	2FA98E87127CFCB20004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
-		name = "ComSmontgomerieBluetoothModule.m: 242";
-		rLen = 0;
-		rLoc = 6887;
-		rType = 0;
-		vrLen = 427;
-		vrLoc = 6552;
-	};
-	2FA98E8A127CFCDE0004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF71134B3F500162E58 /* ComSmontgomerieBluetoothModule.h */;
-		name = "ComSmontgomerieBluetoothModule.h: 37";
-		rLen = 0;
-		rLoc = 1124;
-		rType = 0;
-		vrLen = 719;
-		vrLoc = 409;
-	};
-	2FA98E8B127CFCDE0004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
-		name = "ComSmontgomerieBluetoothModule.m: 149";
-		rLen = 29;
-		rLoc = 3314;
-		rType = 0;
-		vrLen = 330;
-		vrLoc = 2998;
-	};
-	2FA98E8C127CFCDE0004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
-		name = "ComSmontgomerieBluetoothModule.m: 151";
-		rLen = 0;
-		rLoc = 3310;
-		rType = 0;
-		vrLen = 512;
-		vrLoc = 3142;
-	};
-	2FA98E8D127CFCDE0004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
-		name = "titanium.xcconfig: 13";
-		rLen = 0;
-		rLoc = 228;
-		rType = 0;
-		vrLen = 485;
-		vrLoc = 0;
-	};
-	2FA98E98127CFD660004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF71134B3F500162E58 /* ComSmontgomerieBluetoothModule.h */;
-		name = "ComSmontgomerieBluetoothModule.h: 37";
-		rLen = 0;
-		rLoc = 1100;
-		rType = 0;
-		vrLen = 718;
-		vrLoc = 409;
-	};
-	2FA98E99127CFD660004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
-		name = "ComSmontgomerieBluetoothModule.m: 154";
-		rLen = 0;
-		rLoc = 3318;
-		rType = 0;
-		vrLen = 364;
-		vrLoc = 3086;
-	};
-	2FA98E9A127CFD660004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
-		name = "ComSmontgomerieBluetoothModule.m: 167";
-		rLen = 0;
-		rLoc = 3986;
-		rType = 0;
-		vrLen = 669;
-		vrLoc = 3206;
-	};
-	2FA98E9B127CFD660004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
-		name = "titanium.xcconfig: 13";
-		rLen = 0;
-		rLoc = 228;
-		rType = 0;
-		vrLen = 485;
-		vrLoc = 0;
-	};
-	2FA98EAC127CFE240004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
-		name = "ComSmontgomerieBluetoothModule.m: 165";
-		rLen = 0;
-		rLoc = 3853;
-		rType = 0;
-		vrLen = 546;
-		vrLoc = 3207;
-	};
-	2FA98EAD127CFE240004B5DF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
-		name = "titanium.xcconfig: 13";
-		rLen = 0;
-		rLoc = 228;
-		rType = 0;
-		vrLen = 485;
-		vrLoc = 0;
 	};
 	D2AAC07D0554694100DB518D /* bluetoothmodule */ = {
 		activeExec = 0;

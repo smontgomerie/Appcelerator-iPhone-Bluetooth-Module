@@ -23,21 +23,10 @@ typedef enum {
 	NETWORK_HEARTBEAT				// send of entire state at regular intervals
 } packetCodes;
 
-//
-// various states the game can get into
-//
-typedef enum {
-	kStateStartGame,
-	kStatePicker,
-	kStateMultiplayer,
-	kStateMultiplayerCointoss,
-	kStateMultiplayerReconnect
-} gameStates;
-
 
 @implementation ComSmontgomerieBluetoothModule
 
-@synthesize peerStatus, gameState;
+@synthesize peerStatus;
 @synthesize gameSession, gamePeerId, lastHeartbeatDate, connectionAlert;
 
 #pragma mark Internal
@@ -61,6 +50,8 @@ typedef enum {
 	// this method is called when the module is first loaded
 	// you *must* call the superclass
 	[super startup];
+	manager = [[SessionManager alloc] init];
+	manager.gameDelegate = self;
 	
 	NSLog(@"[INFO] %@ loaded",self);
 }
@@ -158,8 +149,6 @@ typedef enum {
 		
 		GKPeerPickerController*		picker;
 		
-		self.gameState = kStatePicker;			// we're going to do Multiplayer!
-		
 		picker = [[GKPeerPickerController alloc] init]; // note: picker is released in various picker delegate methods when picker use is done.
 		picker.delegate = self;
 		[picker show]; // show the Peer Picker		
@@ -186,9 +175,6 @@ typedef enum {
 		[self invalidateSession:self.gameSession];
 		self.gameSession = nil;
 	}
-	
-	// go back to start mode
-	self.gameState = kStateStartGame;
 } 
 
 /*
@@ -200,26 +186,38 @@ typedef enum {
 // Provide a custom session that has a custom session ID. This is also an opportunity to provide a session with a custom display name.
 //
 - (GKSession *)peerPickerController:(GKPeerPickerController *)picker sessionForConnectionType:(GKPeerPickerConnectionType)type { 
-	GKSession *session = [[GKSession alloc] initWithSessionID:kTankSessionID displayName:nil sessionMode:GKSessionModePeer]; 
-	return [session autorelease]; // peer picker retains a reference, so autorelease ours so we don't leak.
+	
+// TODO
+	[manager setupSession: kTankSessionID];
+	return manager.session;
+	
+	//GKSession *session = [[GKSession alloc] initWithSessionID:kTankSessionID displayName:nil sessionMode:GKSessionModePeer]; 
+	// return [session autorelease]; // peer picker retains a reference, so autorelease ours so we don't leak.
 }
 
 - (void)peerPickerController:(GKPeerPickerController *)picker didConnectPeer:(NSString *)peerID toSession:(GKSession *)session { 
+	NSLog(@"Did connect to peer %@", peerID);
+	
 	// Remember the current peer.
 	self.gamePeerId = peerID;  // copy
 	
+	[manager connect:[peerID retain]]; 
+	manager.session = session;
+	
 	// Make sure we have a reference to the game session and it is set up
 	self.gameSession = session; // retain
-	self.gameSession.delegate = self; 
-	[self.gameSession setDataReceiveHandler:self withContext:NULL];
+	self.gameSession.delegate = manager; 
+	[self.gameSession setDataReceiveHandler:manager withContext:NULL];
 	
 	// Done with the Peer Picker so dismiss it.
 	[picker dismiss];
 	picker.delegate = nil;
 	[picker autorelease];
 	
-	// Start Multiplayer game by entering a cointoss state to determine who is server/client.
-	self.gameState = kStateMultiplayerCointoss;
+	NSDictionary *event = [NSDictionary dictionaryWithObjectsAndKeys:
+						   peerID, @"peerID",
+						   nil];
+	[self fireEvent:@"didConnect" withObject:event];
 } 
 
 #pragma mark -
@@ -239,23 +237,73 @@ typedef enum {
 
 #pragma mark Data Send/Receive Methods
 
+	 
+-(void) session:(SessionManager*) sessionManager didReceivePacket: (NSData*) payload ofType:(PacketType) header
+ {
+	 // Check the header to see if this is a voice or a game packet
+	 if (header == PacketTypeVoice) {
+		 [[GKVoiceChatService defaultVoiceChatService] receivedData:payload fromParticipantID:sessionManager.currentConfPeerID];
+	 } else {
+		 
+		 NSString* string = [[NSString alloc] initWithData: payload encoding: NSASCIIStringEncoding];
+
+		 NSLog(@"Fire Event: data: %@", string);
+		 
+		 NSDictionary *event = [NSDictionary dictionaryWithObjectsAndKeys:
+								string, @"data",
+								nil];
+		 [self fireEvent:@"receive" withObject:event];
+	 } 
+ }
+
+- (void) voiceChatWillStart:(SessionManager *)session
+{
+	NSLog(@"voicechatwillstart");
+}
+
+- (void) session:(SessionManager *)session didConnectAsInitiator:(BOOL)shouldStart
+{
+	NSLog(@"didConnectAsInitiator");
+}
+
+- (void) willDisconnect:(SessionManager *)session
+{
+	NSLog(@"willDisconnect");
+}
+
 /*
  * Getting a data packet. This is the data receive handler method expected by the GKSession. 
  * We set ourselves as the receive data handler in the -peerPickerController:didConnectPeer:toSession: method.
  */
 - (void)receiveData:(NSData *)data fromPeer:(NSString *)peer inSession:(GKSession *)session context:(void *)context { 
-	static int lastPacketTime = -1;
-	unsigned char *incomingPacket = (unsigned char *)[data bytes];
-	int *pIntData = (int *)&incomingPacket[0];
-	//
-	// developer  check the network time and make sure packers are in order
-	//
-	int packetTime = pIntData[0];
-	int packetID = pIntData[1];
-	if(packetTime < lastPacketTime && packetID != NETWORK_COINTOSS) {
-		return;	
-	}
+	NSLog(@"Received");
 	
+	PacketType header;
+    uint32_t swappedHeader;
+    if ([data length] >= sizeof(uint32_t)) {    
+        [data getBytes:&swappedHeader length:sizeof(uint32_t)];
+        header = (PacketType)CFSwapInt32BigToHost(swappedHeader);
+        NSRange payloadRange = {sizeof(uint32_t), [data length]-sizeof(uint32_t)};
+        NSData* payload = [data subdataWithRange:payloadRange];
+		NSString* string = [[NSString alloc] initWithData: payload];
+        
+		NSLog(@"Data: %@", string);
+
+        // Check the header to see if this is a voice or a game packet
+        if (header == PacketTypeVoice) {
+            [[GKVoiceChatService defaultVoiceChatService] receivedData:payload fromParticipantID:peer];
+        } else {
+
+			NSLog(@"Fire Event: data: %@", string);
+
+			NSDictionary *event = [NSDictionary dictionaryWithObjectsAndKeys:
+								   string, @"data",
+								   nil];
+			[self fireEvent:@"receive" withObject:event];
+        }
+    }
+	
+	/*
 	lastPacketTime = packetTime;
 	switch( packetID ) {
 		case NETWORK_COINTOSS:
@@ -265,7 +313,7 @@ typedef enum {
 
 			
 			// after 1 second fire method to hide the label
-			[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(hideGameLabel:) userInfo:nil repeats:NO];
+//			[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(hideGameLabel:) userInfo:nil repeats:NO];
 		}
 			break;
 		case NETWORK_MOVE_EVENT:
@@ -295,8 +343,54 @@ typedef enum {
 			// error
 			break;
 	}
+	*/
+	
 }
 
+/* Public API method */
+- (void)send: (id) args
+{
+	ENSURE_SINGLE_ARG(args, NSDictionary);
+	ENSURE_TYPE_OR_NIL(args,NSDictionary);
+	
+	NSString * data = [args objectForKey:@"data"];
+	ENSURE_CLASS_OR_NIL(data,[NSString class]);
+	
+	NSNumber* type = [args objectForKey:@"type"];
+	ENSURE_CLASS_OR_NIL(type, [NSNumber class]);
+	
+	if ( type == NULL )
+	{
+		type = [[NSNumber alloc] initWithInt:PacketTypeStart];
+	}
+	
+	NSLog(@"args: %@", args);
+	NSLog(@"Sending: %@", data);
+	
+//	NSString * reliableStr = [self valueForUndefinedKey:@"reliable"];
+//	ENSURE_CLASS_OR_NIL(reliableStr,[NSString class]);
+	
+	//bool reliable = (reliableStr == NULL) || ([reliableStr isEqualToString: @"true"]);
+	
+//	static unsigned char networkPacket[kMaxTankPacketSize];
+
+/*	NSUInteger usedLength = data.length;
+	NSRange range = NSRangeFromString(data);
+	[data getBytes:&networkPacket maxLength:kMaxTankPacketSize 
+			usedLength:&usedLength encoding:NSASCIIStringEncoding 
+		   options:NSStringEncodingConversionAllowLossy range:range
+			remainingRange:NULL];
+*/	
+//    NSData *packet = [[NSData alloc] initWithBytes:&networkPacket length:usedLength];	
+    NSData *packet = [data dataUsingEncoding: NSASCIIStringEncoding];
+	
+	manager.currentConfPeerID = gamePeerId;
+	[manager sendPacket: packet ofType: [type intValue]];
+	
+//	[self sendNetworkPacket:gameSession packetID:NETWORK_HEARTBEAT withData:&networkPacket ofLength:usedLength reliable:reliable];
+}
+
+/*
 - (void)sendNetworkPacket:(GKSession *)session packetID:(int)packetID withData:(void *)data ofLength:(int)length reliable:(BOOL)howtosend {
 	// the packet we'll send is resued
 	static unsigned char networkPacket[kMaxTankPacketSize];
@@ -318,33 +412,11 @@ typedef enum {
 		}
 	}
 }
+ */
 
-#pragma mark GKSessionDelegate Methods
+	 
+MAKE_SYSTEM_PROP(VOICE,PacketTypeVoice);
+MAKE_SYSTEM_PROP(START,PacketTypeStart);
 
-// we've gotten a state change in the session
-- (void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state { 
-	if(self.gameState == kStatePicker) {
-		return;				// only do stuff if we're in multiplayer, otherwise it is probably for Picker
-	}
-	
-	if(state == GKPeerStateDisconnected) {
-		// We've been disconnected from the other peer.
-		
-		// Update user alert or throw alert if it isn't already up
-		NSString *message = [NSString stringWithFormat:@"Could not reconnect with %@.", [session displayNameForPeer:peerID]];
-		if((self.gameState == kStateMultiplayerReconnect) && self.connectionAlert && self.connectionAlert.visible) {
-			self.connectionAlert.message = message;
-		}
-		else {
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Lost Connection" message:message delegate:self cancelButtonTitle:@"End Game" otherButtonTitles:nil];
-			self.connectionAlert = alert;
-			[alert show];
-			[alert release];
-		}
-		
-		// go back to start mode
-		self.gameState = kStateStartGame; 
-	} 
-} 
 
 @end
