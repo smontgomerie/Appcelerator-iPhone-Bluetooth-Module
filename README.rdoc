@@ -14,12 +14,14 @@ Then build the code.
 	./build.py
 
 Install the calendar into your app.
-	cp bluetooth-iphone-xxx.zip ~/Library/Application\ Support/Titanium/
+	cp com.smontgomerie.bluetooth-iphone-xxx.zip ~/Library/Application\ Support/Titanium/
 
 Finally, in your app's tiapp.xml file:
 	<modules>
-  	  <module version="xxx">bluetoothmodule</module>
+  	  <module version="xxx">com.smontgomerie.bluetooth</module>
   	</modules>
+  	
+Make sure to change the "xxx" to the version of the module that's been compiled.
   
 You'll need to at least touch your iPhone app before including it (assuming you're building with Xcode, not Titanium).
 
