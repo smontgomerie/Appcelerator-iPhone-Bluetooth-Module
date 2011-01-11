@@ -71,3 +71,10 @@ And do something when we receive data:
 
 
 That's pretty much it!  Any edits/improvements are appreciated.
+
+== TODO
+* Support multiplayer
+* Support voice chat
+* Support more events, such as the client will disconnect
+* Right now the module connects where both clients can be servers.  Allow the user to choose a server or client mode.
+* Allow a custom peer picker UI.  Apple's Gamekit PeerPicker UI sucks.
