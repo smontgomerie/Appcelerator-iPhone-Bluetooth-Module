@@ -1,2 +1,71 @@
 = Appcelerator Bluetooth Module
 
+A module for appcelerator that allows two iOS devices to communicate bidirectionally over bluetooth.
+
+== Building
+--------------
+
+First download the code:
+	git clone git@github.com:smontgomerie/Appcelerator-iPhone-Bluetooth-Module.git
+	
+	cd Appcelerator-iPhone-Bluetooth-Module
+
+Then build the code.
+	./build.py
+
+Install the calendar into your app.
+	cp bluetooth-iphone-xxx.zip ~/Library/Application\ Support/Titanium/
+
+Finally, in your app's tiapp.xml file:
+	<modules>
+  	  <module version="xxx">bluetoothmodule</module>
+  	</modules>
+  
+You'll need to at least touch your iPhone app before including it (assuming you're building with Xcode, not Titanium).
+
+== Basic Usage
+---------------
+
+First, we'll need to add the Framework in Xcode. Select Frame-works in your project folder, right click "Add -> Existing Frameworks" and select the menu item.
+*Add GameKit.framework*
+
+Next, we'll want to require this module in our Appcelerator Javascript code:
+
+	var bluetooth = require("com.smontgomerie.bluetooth");
+	Ti.API.info("module is => " + bluetooth);
+
+Next, some example code to start connecting:
+
+	// Create a button called connectBtn
+
+	connectBtn.addEventListener("click", function() {
+		bluetooth.startPicker();
+	});
+
+Do something useful when another user connects:
+
+	bluetooth.addEventListener("didConnect", function(e)
+	{
+		var peerID = e.peerID;
+	});
+
+Now, send some data to our peer:
+	
+	// Create a button called "sendBtn"
+	
+	sendBtn.addEventListener("click", function() {
+		bluetooth.send({
+			data: "Hi"
+		});
+	});
+
+And do something when we receive data:
+
+	bluetooth.addEventListener("receive", function(e) {
+		Ti.API.info(e);
+		Ti.API.info(e.data);
+	});
+
+
+
+That's pretty much it!  Any edits/improvements are appreciated.

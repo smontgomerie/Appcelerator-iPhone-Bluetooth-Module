@@ -302,8 +302,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -321,10 +319,11 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>2F7CC2B3127E2B5D0090785B</string>
+										<string>2FB7409612D5AA9E00ED72A3</string>
 										<key>history</key>
 										<array>
-											<string>2F7CC22C127E0A650090785B</string>
+											<string>2FB7409412D5AA9E00ED72A3</string>
+											<string>2FB7409512D5AA9E00ED72A3</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -336,16 +335,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1072, 280}}</string>
+								<string>{{0, 0}, {1072, 268}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 109 1280 669 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>280pt</string>
+							<string>268pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -356,14 +357,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 285}, {1072, 343}}</string>
+								<string>{{0, 273}, {1072, 355}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 109 1280 669 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>343pt</string>
+							<string>355pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -382,9 +383,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>2F7CC22E127E0A650090785B</string>
+				<string>2FB7409712D5AA9E00ED72A3</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>2F7CC22F127E0A650090785B</string>
+				<string>2FB7409812D5AA9E00ED72A3</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -523,7 +524,7 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>2FC39E901263CB96002B57B1</string>
-		<string>/Users/montgomerie/iPhoneDev/BluetoothModule/BluetoothModule.xcodeproj</string>
+		<string>/Users/montgomerie/iPhoneDev/BluetoothModule/bluetoothmodule.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 109 1280 669 0 0 1280 778 </string>
@@ -603,7 +604,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>2FC39E901263CB96002B57B1</string>
-				<string>2F7CC230127E0A650090785B</string>
+				<string>2FB7409912D5AA9E00ED72A3</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

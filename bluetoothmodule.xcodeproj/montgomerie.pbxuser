@@ -8,7 +8,7 @@
 			D2AAC07D0554694100DB518D /* bluetoothmodule */,
 		);
 		breakpoints = (
-			2F7CC22A127E0A5F0090785B /* ComSmontgomerieBluetoothModule.m:250 */,
+			2F7CC22A127E0A5F0090785B /* ComSmontgomerieBluetoothModule.m:238 */,
 		);
 		codeSenseManager = 2FA98DE6127CDB580004B5DF /* Code sense */;
 		perUserDictionary = {
@@ -70,12 +70,13 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 310244486;
-			PBXWorkspaceStateSaveDate = 310244486;
+			PBXPerProjectTemplateStateSaveDate = 316465015;
+			PBXWorkspaceStateSaveDate = 316465015;
 		};
 		perUserProjectItems = {
-			2F7CC22C127E0A650090785B /* PBXTextBookmark */ = 2F7CC22C127E0A650090785B /* PBXTextBookmark */;
-			2F7CC2B3127E2B5D0090785B /* PBXTextBookmark */ = 2F7CC2B3127E2B5D0090785B /* PBXTextBookmark */;
+			2FB7409412D5AA9E00ED72A3 = 2FB7409412D5AA9E00ED72A3 /* PBXTextBookmark */;
+			2FB7409512D5AA9E00ED72A3 = 2FB7409512D5AA9E00ED72A3 /* PBXTextBookmark */;
+			2FB7409612D5AA9E00ED72A3 = 2FB7409612D5AA9E00ED72A3 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 2FA98DE5127CDB580004B5DF /* Source Control */;
 		userBuildSettings = {
@@ -93,9 +94,9 @@
 	};
 	24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1076, 5031}}";
-			sepNavSelRange = "{6583, 8}";
-			sepNavVisRange = "{5990, 687}";
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 5304}}";
+			sepNavSelRange = "{11684, 0}";
+			sepNavVisRange = "{11318, 459}";
 			sepNavWindowFrame = "{{16, 81}, {1015, 692}}";
 		};
 	};
@@ -109,7 +110,7 @@
 	};
 	24DE9E1011C5FE74003F90F6 /* ComSmontgomerieBluetoothModuleAssets.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 280}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 236}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 288}";
 		};
@@ -123,12 +124,12 @@
 	};
 	2F7CBE3B127D47AD0090785B /* SessionManager.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1011, 6006}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 5889}}";
 			sepNavSelRange = "{7124, 0}";
-			sepNavVisRange = "{6428, 912}";
+			sepNavVisRange = "{16757, 679}";
 		};
 	};
-	2F7CC22A127E0A5F0090785B /* ComSmontgomerieBluetoothModule.m:250 */ = {
+	2F7CC22A127E0A5F0090785B /* ComSmontgomerieBluetoothModule.m:238 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -140,31 +141,11 @@
 		functionName = "-session:didReceivePacket:ofType:";
 		hitCount = 1;
 		ignoreCount = 0;
-		lineNumber = 250;
+		lineNumber = 238;
 		location = DuckHunt2;
-		modificationTime = 310258004.103808;
+		modificationTime = 316465429.286314;
 		originalNumberOfMultipleMatches = 1;
-		state = 1;
-	};
-	2F7CC22C127E0A650090785B /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
-		name = "ComSmontgomerieBluetoothModule.m: 250";
-		rLen = 8;
-		rLoc = 6583;
-		rType = 0;
-		vrLen = 671;
-		vrLoc = 5946;
-	};
-	2F7CC2B3127E2B5D0090785B /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
-		name = "ComSmontgomerieBluetoothModule.m: 250";
-		rLen = 8;
-		rLoc = 6583;
-		rType = 0;
-		vrLen = 687;
-		vrLoc = 5990;
+		state = 2;
 	};
 	2FA98DE5127CDB580004B5DF /* Source Control */ = {
 		isa = PBXSourceControlManager;
@@ -179,6 +160,36 @@
 	2FA98DE6127CDB580004B5DF /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	2FB7409412D5AA9E00ED72A3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24DE9E1011C5FE74003F90F6 /* ComSmontgomerieBluetoothModuleAssets.m */;
+		name = "ComSmontgomerieBluetoothModuleAssets.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 288;
+		vrLoc = 0;
+	};
+	2FB7409512D5AA9E00ED72A3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
+		name = "ComSmontgomerieBluetoothModule.m: 417";
+		rLen = 0;
+		rLoc = 11687;
+		rType = 0;
+		vrLen = 472;
+		vrLoc = 164;
+	};
+	2FB7409612D5AA9E00ED72A3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 24DD6CF81134B3F500162E58 /* ComSmontgomerieBluetoothModule.m */;
+		name = "ComSmontgomerieBluetoothModule.m: 417";
+		rLen = 0;
+		rLoc = 11687;
+		rType = 0;
+		vrLen = 414;
+		vrLoc = 0;
 	};
 	D2AAC07D0554694100DB518D /* bluetoothmodule */ = {
 		activeExec = 0;

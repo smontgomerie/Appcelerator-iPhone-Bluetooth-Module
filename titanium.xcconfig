@@ -15,5 +15,5 @@ TITANIUM_BASE_SDK = "$(TITANIUM_SDK)/iphone/include"
 TITANIUM_BASE_SDK2 = "$(TITANIUM_SDK)/iphone/include/TiCore"
 HEADER_SEARCH_PATHS= $(TITANIUM_BASE_SDK) $(TITANIUM_BASE_SDK2)
 
-
+OTHER_LDFLAGS=$(inherited) -framework GameKit
 
