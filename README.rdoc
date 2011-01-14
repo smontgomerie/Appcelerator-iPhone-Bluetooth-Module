@@ -14,6 +14,7 @@ Then build the code.
 	./build.py
 
 If you get an error, it's likely that the Titanium SDK is wrong.  Modify the "titanium.xconfig" file:
+
 TITANIUM_SDK_VERSION = 1.4.0 (or whatever version of the mobile SDK you're using).
 
 This directory should be present:
