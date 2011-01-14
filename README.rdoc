@@ -13,7 +13,15 @@ First download the code:
 Then build the code.
 	./build.py
 
-Install the calendar into your app.
+If you get an error, it's likely that the Titanium SDK is wrong.  Modify the "titanium.xconfig" file:
+TITANIUM_SDK_VERSION = 1.4.0 (or whatever version of the mobile SDK you're using).
+
+This directory should be present:
+TITANIUM_SDK = ${HOME}/Library/Application Support/Titanium/mobilesdk/osx/$(TITANIUM_SDK_VERSION)
+
+If not, modify it to the installation of your Titanium Mobile SDK.
+
+Next, install the calendar into your app.
 	cp com.smontgomerie.bluetooth-iphone-xxx.zip ~/Library/Application\ Support/Titanium/
 
 Finally, in your app's tiapp.xml file:
